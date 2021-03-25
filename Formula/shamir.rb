@@ -5,25 +5,25 @@
 class Shamir < Formula
   desc "Split and combine secrets using Shamir's Secret Sharing algorithm."
   homepage "https://incipher.io/shamir"
-  version "v0.1.1"
+  version "0.1.2"
   license "CC0"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.1/shamir_0.1.1_Darwin_x86_64.tar.gz"
-    sha256 "120e01ac60cfb1bde4f493738a68790b9418ecfc22dd424e6ba511f364984795"
+    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Darwin_x86_64.tar.gz"
+    sha256 "054cceb76c9ab6f103f4c17589396937d71ee7f53a4bf721c6ad6528e0eea13c"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.1/shamir_0.1.1_Darwin_arm64.tar.gz"
-    sha256 "2c0d60545125a8333ef0202cfe3347d1840a19e5f42059ced0bbe9aa0e78899d"
+    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Darwin_arm64.tar.gz"
+    sha256 "b037c1ec080a7d65b58c9953c6bc7f3a9a04aa945ac6c8dbfabd2037e6397bbe"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.1/shamir_0.1.1_Linux_x86_64.tar.gz"
-    sha256 "c51d3d226fa8798c6c56e56947f8a72430ca9c3885bfe3896c94cdf91756c4f1"
+    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Linux_x86_64.tar.gz"
+    sha256 "986983dd67f20ae11010d1ee83ab53e5a5892ca21f224c1568c4312b62a332e6"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.1/shamir_0.1.1_Linux_arm64.tar.gz"
-    sha256 "0ca67911428d4568abc719b6fed20174de75045bc645e51b5d426911331351ed"
+    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Linux_arm64.tar.gz"
+    sha256 "b614bf42bce3e0305d22213019d8d769a9e890e1aa4a6f55479569c1e7ec5f34"
   end
 
   depends_on "go"
