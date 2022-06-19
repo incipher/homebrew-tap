@@ -5,32 +5,48 @@
 class Shamir < Formula
   desc "Split and combine secrets using Shamir's Secret Sharing algorithm."
   homepage "https://incipher.io/shamir"
-  version "0.1.2"
+  version "0.2.0"
   license "CC0"
-  bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Darwin_x86_64.tar.gz"
-    sha256 "054cceb76c9ab6f103f4c17589396937d71ee7f53a4bf721c6ad6528e0eea13c"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/incipher/shamir/releases/download/v0.2.0/shamir_0.2.0_Darwin_arm64.tar.gz"
+      sha256 "aec87d9b2715139fcebc5568a72e3c4ba171d4b83e92cfe9db35148250f69150"
+
+      def install
+        bin.install "shamir"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/incipher/shamir/releases/download/v0.2.0/shamir_0.2.0_Darwin_x86_64.tar.gz"
+      sha256 "39f3dd59a764f581c8d354c4c39e087670e14114bc268b73175da513d800ca9f"
+
+      def install
+        bin.install "shamir"
+      end
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Darwin_arm64.tar.gz"
-    sha256 "b037c1ec080a7d65b58c9953c6bc7f3a9a04aa945ac6c8dbfabd2037e6397bbe"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Linux_x86_64.tar.gz"
-    sha256 "986983dd67f20ae11010d1ee83ab53e5a5892ca21f224c1568c4312b62a332e6"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/incipher/shamir/releases/download/v0.1.2/shamir_0.1.2_Linux_arm64.tar.gz"
-    sha256 "b614bf42bce3e0305d22213019d8d769a9e890e1aa4a6f55479569c1e7ec5f34"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/incipher/shamir/releases/download/v0.2.0/shamir_0.2.0_Linux_x86_64.tar.gz"
+      sha256 "cee427faa1b1c74e02bffd7a7684a33318423fb4b74344b9699872924f30b525"
+
+      def install
+        bin.install "shamir"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/incipher/shamir/releases/download/v0.2.0/shamir_0.2.0_Linux_arm64.tar.gz"
+      sha256 "8b3033d232b9155c816263f87002463c22212fb3ee28432cd870c23c265527f3"
+
+      def install
+        bin.install "shamir"
+      end
+    end
   end
 
   depends_on "go"
-
-  def install
-    bin.install "shamir"
-  end
 
   test do
     system "#{bin}/shamir --version"
