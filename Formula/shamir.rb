@@ -5,21 +5,21 @@
 class Shamir < Formula
   desc "Split and combine secrets using Shamir's Secret Sharing algorithm."
   homepage "https://incipher.io/shamir"
-  version "0.2.1"
+  version "0.3.0"
   license "CC0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/incipher/shamir/releases/download/v0.2.1/shamir_0.2.1_Darwin_arm64.tar.gz"
-      sha256 "a119481e6d6dae75c5230fef83cbbb87c32208e8cfb596f550348ef62b928587"
+      url "https://github.com/incipher/shamir/releases/download/v0.3.0/shamir_0.3.0_Darwin_arm64.tar.gz"
+      sha256 "8b76dd6767d6635c70c201254057d77e3cfb4f21859f80e68be1936453961d02"
 
       def install
         bin.install "shamir"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/incipher/shamir/releases/download/v0.2.1/shamir_0.2.1_Darwin_x86_64.tar.gz"
-      sha256 "45e7994480879a6bce96d62dc68ba7c7defab27c11350c4878f87d549702fdec"
+      url "https://github.com/incipher/shamir/releases/download/v0.3.0/shamir_0.3.0_Darwin_x86_64.tar.gz"
+      sha256 "ce25a5a4a5ab5eca7d954a6de6d9aeefaa453cb3a24d8ad28740da032c94d6ab"
 
       def install
         bin.install "shamir"
@@ -28,25 +28,23 @@ class Shamir < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/incipher/shamir/releases/download/v0.2.1/shamir_0.2.1_Linux_x86_64.tar.gz"
-      sha256 "4655d4a25063b95c937e44280c6b13c3a56575aec6bb14d9dff2387418b26157"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/incipher/shamir/releases/download/v0.3.0/shamir_0.3.0_Linux_arm64.tar.gz"
+      sha256 "537c2b72387bb021169bd640b8bb4877f7fcd011a8cfda56e1df31d7a769c8f7"
 
       def install
         bin.install "shamir"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/incipher/shamir/releases/download/v0.2.1/shamir_0.2.1_Linux_arm64.tar.gz"
-      sha256 "1d03c220dadced024fd62bf8b22503ce3a1bfbf67988c8b9cbbab6936a2d8e81"
+    if Hardware::CPU.intel?
+      url "https://github.com/incipher/shamir/releases/download/v0.3.0/shamir_0.3.0_Linux_x86_64.tar.gz"
+      sha256 "bbb3589dcc743d5ff5c51d82dab12a73ccaee1d27b118f9be3d774357fdbe0bd"
 
       def install
         bin.install "shamir"
       end
     end
   end
-
-  depends_on "go"
 
   test do
     system "#{bin}/shamir --version"
