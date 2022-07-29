@@ -5,21 +5,21 @@
 class Shamir < Formula
   desc "Split and combine secrets using Shamir's Secret Sharing algorithm."
   homepage "https://incipher.io/shamir"
-  version "0.4.1"
+  version "0.4.2"
   license "CC0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.1/shamir_0.4.1_Darwin_x86_64.tar.gz"
-      sha256 "5d9b115b9a3a6748d167dfe5ba376f4dbce67241171742a357eb349f8697294b"
+      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Darwin_x86_64.tar.gz"
+      sha256 "31ba64e04408c7f8e8be9857544ae3f7af0820e216e35a365614d29745998a47"
 
       def install
         bin.install "shamir"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.1/shamir_0.4.1_Darwin_arm64.tar.gz"
-      sha256 "1fa98bbc1fbdf0b330969c98eaf321a74519fa093f60b90fb5aa3803099d3b5d"
+      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Darwin_arm64.tar.gz"
+      sha256 "8444ae80b53db70f42787b4c5e431b01cc2c9119c904921e0a0dfa886b8f4b96"
 
       def install
         bin.install "shamir"
@@ -29,16 +29,16 @@ class Shamir < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.1/shamir_0.4.1_Linux_arm64.tar.gz"
-      sha256 "45b4a08843b3c8bfd8c91112691efce94622e2c5c8fc13c161c08dbb8341ffd7"
+      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Linux_arm64.tar.gz"
+      sha256 "efcaf8eafd1bc55a578ed528587263a4da5c1dea5b7a96742a980b375af955c7"
 
       def install
         bin.install "shamir"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.1/shamir_0.4.1_Linux_x86_64.tar.gz"
-      sha256 "e19646ce8de3bedefbba92b3c15c39cdcc441ecb1c388e5a33d67deb92ab02df"
+      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Linux_x86_64.tar.gz"
+      sha256 "ee99a68fc7f7dfd88fde37e57847934b7b48afbaa848bb2caa9b3c83c4f08740"
 
       def install
         bin.install "shamir"
