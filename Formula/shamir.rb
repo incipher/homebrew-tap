@@ -5,21 +5,21 @@
 class Shamir < Formula
   desc "Split and combine secrets using Shamir's Secret Sharing algorithm."
   homepage "https://incipher.io/shamir"
-  version "0.4.2"
+  version "0.4.3"
   license "CC0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Darwin_x86_64.tar.gz"
-      sha256 "31ba64e04408c7f8e8be9857544ae3f7af0820e216e35a365614d29745998a47"
+    if Hardware::CPU.arm?
+      url "https://github.com/incipher/shamir/releases/download/v0.4.3/shamir_0.4.3_Darwin_arm64.tar.gz"
+      sha256 "162adbeb3d4974e07caa712d5d63d8c7c6f0a277077562a962eb22f126f6c908"
 
       def install
         bin.install "shamir"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Darwin_arm64.tar.gz"
-      sha256 "8444ae80b53db70f42787b4c5e431b01cc2c9119c904921e0a0dfa886b8f4b96"
+    if Hardware::CPU.intel?
+      url "https://github.com/incipher/shamir/releases/download/v0.4.3/shamir_0.4.3_Darwin_x86_64.tar.gz"
+      sha256 "4aee9cb13e040b8f88297084ba0b83bcd88eafb44b03f5a23895a086f844ad91"
 
       def install
         bin.install "shamir"
@@ -29,16 +29,16 @@ class Shamir < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Linux_arm64.tar.gz"
-      sha256 "efcaf8eafd1bc55a578ed528587263a4da5c1dea5b7a96742a980b375af955c7"
+      url "https://github.com/incipher/shamir/releases/download/v0.4.3/shamir_0.4.3_Linux_arm64.tar.gz"
+      sha256 "d1413d92d87d37b4d699a1ed5153c5e2191809f90576e028a925b8a2d6691bc1"
 
       def install
         bin.install "shamir"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/incipher/shamir/releases/download/v0.4.2/shamir_0.4.2_Linux_x86_64.tar.gz"
-      sha256 "ee99a68fc7f7dfd88fde37e57847934b7b48afbaa848bb2caa9b3c83c4f08740"
+      url "https://github.com/incipher/shamir/releases/download/v0.4.3/shamir_0.4.3_Linux_x86_64.tar.gz"
+      sha256 "59aadb8f20303daa3f51640c903e48ef1195e1d31c44c678e0644d6cba04e300"
 
       def install
         bin.install "shamir"
